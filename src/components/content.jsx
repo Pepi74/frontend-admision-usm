@@ -9,7 +9,6 @@ import UsmLogo from '../assets/postulaciones.jpg';
 
 const style = {
   py: 0,
-  width: '100%',
   borderRadius: 2,
   border: '1px solid',
   borderColor: 'divider',

@@ -13,6 +13,7 @@ import 'slick-carousel/slick/slick-theme.css';
 const styleC = {
     border: '2',
     paddingLeft: '20px',
+    paddingRight: '15px',
     borderColor: 'divider',
     backgroundColor: '#fff',
     textAlign: 'initial',
