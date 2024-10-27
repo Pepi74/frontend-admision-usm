@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import '@fontsource/roboto/300.css';
+@import '@fontsource/roboto/400.css';
+@import '@fontsource/roboto/500.css';
+@import '@fontsource/roboto/700.css';
+@import './inicio/index.scss';
+@import './nav-bar/index.scss';
+@import './carrusel/index.scss';
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  font-family: 'Open Sans', sans-serif;
+}
