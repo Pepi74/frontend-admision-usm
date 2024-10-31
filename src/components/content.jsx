@@ -58,16 +58,16 @@ const Informaciones = () => {
             
             <Grid size={{ xs: 12, md: 3 }}>
                 <List sx={style}>
-                    <ListItem sx={styleli} button component={Link} to="/noticias-admision">
+                    <ListItem sx={styleli}  component={Link} to="/noticias-admision">
                         <ListItemText primary="Noticias admisión"/>
                     </ListItem>
-                    <ListItem sx={styleli} button component={Link} to="/beneficios">
+                    <ListItem sx={styleli}  component={Link} to="/beneficios">
                         <ListItemText primary="Beneficios" />
                     </ListItem>
-                    <ListItem sx={styleli} button component={Link} to="/aranceles">
+                    <ListItem sx={styleli}  component={Link} to="/aranceles">
                         <ListItemText primary="Aranceles" />
                     </ListItem>
-                    <ListItem sx={styleli} button component={Link} to="/oferta">
+                    <ListItem sx={styleli}  component={Link} to="/oferta">
                         <ListItemText primary="Conoce nuestra oferta" />
                     </ListItem>
                 </List>
