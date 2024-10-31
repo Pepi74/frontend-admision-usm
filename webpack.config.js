@@ -50,7 +50,7 @@ module.exports = (_, argv) => ({
           {
             loader: '@svgr/webpack',
             options: {
-              svgo: true, // optimiza el SVG si lo deseas
+              svgo: true,
             },
           },
           {
