@@ -54,19 +54,38 @@ const Carrusel = () => {
         setClickStart(Date.now());
     };
 
-    const clickArriba = (path) => {
+    const clickArriba = (path, val) => {
         const duracionClick = Date.now() - clickStart;
         if(duracionClick < 200){
-            navigate(path)
+            if(val == 2){
+                window.location.href = 'https://usm.cl/';
+                return
+            }
+            else if(val == 3){
+                window.location.href = 'https://usm.cl/admision/';
+                return
+            }
+            else if(val == 4){
+                window.location.href = 'https://tour360.usm.cl/';
+                return
+            }
+            else if(val == 5){
+                window.location.href = 'https://cultura.usm.cl/';
+                return
+            }
+            else {
+                navigate(path)
+            }
+            
         }
     };
 
     const items = [
-        { title: "Simulación de postulación PAES", image: SimuladorImg, path: '/simulacion-paes' },
-        { title: "Universidad", image: InformacionesImg, path: '/universidad' },
-        { title: "Admisión", image: ConsultaImg, path: '/admision' },
-        { title: "Tour Virtual", image: TourVirtualImg, path: '/tour-virtual' },
-        { title: "Cultura USM", image: CulturaUSM, path: '/cultura-usm' },
+        { title: "Simulación de postulación PAES", image: SimuladorImg, path: '/simulador', value: 1 },
+        { title: "Universidad", image: InformacionesImg, path: '/universidad', value: 2 },
+        { title: "Informaciones Admisión", image: ConsultaImg, path: '/admision', value: 3 },
+        { title: "Tour Virtual", image: TourVirtualImg, path: '/tour-virtual', value: 4 },
+        { title: "Cultura USM", image: CulturaUSM, path: '/cultura-usm', value: 5 },
     ];
 
     const settings = {
@@ -97,7 +116,7 @@ const Carrusel = () => {
             <h1 style={{paddingTop:'50px'}}>INFORMACIONES</h1>
             <Slider {...settings}>
                 {items.map((item, index) => (
-                    <Grid sx={styleC} key={index} onMouseDown={clickAbajo} onMouseUp={() => clickArriba(item.path)}>
+                    <Grid sx={styleC} key={index} onMouseDown={clickAbajo} onMouseUp={() => clickArriba(item.path,item.value)}>
                         <Box sx={{ ...styleC, backgroundImage: `url(${item.image})`}}>
                             <h3 className='titulo-recuadro'>{item.title}</h3>
                         </Box>

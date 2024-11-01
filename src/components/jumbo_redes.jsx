@@ -46,17 +46,7 @@ const JumboRedes = () => {
         <>
             <h1 style={{paddingTop:'50px'}}>REDES SOCIALES</h1>
             <Grid container spacing={4} justifyContent={'center'}>
-                <Grid size={{ xs: 12, s: 8, md: 2 }} sx={styleBoxYT}>
-                    <div style={iconoStyle}>
-                        <YouTubeIcon style={{ fontSize: '60px' }}/>
-                    </div>
-                    
-                    <div className='contenedor-redes'>
-                        @usmadmision
-                        <a className='contenedor-redireccion' href='https://www.youtube.com/usmadmision'>Ir a Youtube</a>
-                    </div>
-                </Grid>
-                <Grid size={{ xs: 12, s: 8, md: 2 }} sx={styleBoxFB}>
+            <Grid size={{ xs: 12, s: 8, md: 2 }} sx={styleBoxFB}>
                     <div style={iconoStyle}>
                         <FacebookIcon style={{ fontSize: '60px' }}/>
                     </div>
@@ -74,6 +64,16 @@ const JumboRedes = () => {
                     <div className='contenedor-redes'>
                         @admisionusm
                         <a className='contenedor-redireccion' href='https://www.instagram.com/admisionusm/'>Ir a Instagram</a>
+                    </div>
+                </Grid>
+                <Grid size={{ xs: 12, s: 8, md: 2 }} sx={styleBoxYT}>
+                    <div style={iconoStyle}>
+                        <YouTubeIcon style={{ fontSize: '60px' }}/>
+                    </div>
+                    
+                    <div className='contenedor-redes'>
+                        @usmadmision
+                        <a className='contenedor-redireccion' href='https://www.youtube.com/usmadmision'>Ir a Youtube</a>
                     </div>
                 </Grid>
                 <Grid size={{ xs: 12, s: 8, md: 2 }} sx={styleBoxTT}>
