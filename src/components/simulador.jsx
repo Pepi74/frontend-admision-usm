@@ -505,7 +505,8 @@ const styleButtonSimular ={
 }
 
 const FormularioSimulacion = () => {
-  // Estado inicial para los campos
+  const [resultados, setResultados] = useState([]);
+
   const [formData, setFormData] = useState({
     nem: '',
     ranking: '',
@@ -516,7 +517,6 @@ const FormularioSimulacion = () => {
     competenciaMatematica2: ''
   });
 
-  // Manejar cambios en los campos
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -524,7 +524,6 @@ const FormularioSimulacion = () => {
     });
   };
 
-  // Limpiar campos
   const handleClear = () => {
     setFormData({
       nem: '',
@@ -535,13 +534,73 @@ const FormularioSimulacion = () => {
       ciencias: '',
       competenciaMatematica2: ''
     });
+    setResultados([]);
   };
 
-  // Enviar formulario
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Datos enviados:', formData);
-    // Aquí puedes agregar la lógica para enviar los datos al backend o a otra función
+
+    const userPuntajes = {
+      nem: parseInt(formData.nem, 10),
+      ranking: parseInt(formData.ranking, 10),
+      competenciaLectora: parseInt(formData.competenciaLectora, 10),
+      competenciaMatematica1: parseInt(formData.competenciaMatematica1, 10),
+      competenciaMatematica2: formData.competenciaMatematica2 ? parseInt(formData.competenciaMatematica2, 10) : null,
+      historia: formData.historia ? parseInt(formData.historia, 10) : null,
+      ciencias: formData.ciencias ? parseInt(formData.ciencias, 10) : null
+    };
+
+    const carrerasFiltradas = Object.entries(carreras.carreras).reduce((result, [nombre, datosCarrera]) => {
+      const campusValidos = datosCarrera.campus.reduce((campusArray, campus) => {
+        const ponderacionSinM2 = carreras.ponderacion.find(p => !p.M2);
+        const puntajePonderadoSinM2 = calcularPuntajePonderado(ponderacionSinM2, userPuntajes);
+
+        const ponderacionConM2 = carreras.ponderacion.find(p => p.M2);
+        const puntajePonderadoConM2 = calcularPuntajePonderado(ponderacionConM2, userPuntajes);
+
+        const puntajeMinimo = parseFloat(campus.puntajeMinimo);
+        const puntajeSeleccion = parseFloat(campus.puntajeSeleccion);
+
+        // Agregar campus si cumple con el puntaje mínimo con al menos un ponderado
+        if(
+          (!isNaN(puntajeMinimo) && puntajePonderadoSinM2 >= puntajeMinimo && puntajePonderadoSinM2 >= puntajeSeleccion) ||
+          (!isNaN(puntajeMinimo) && puntajePonderadoConM2 >= puntajeMinimo && puntajePonderadoConM2 >= puntajeSeleccion)
+        ){
+          campusArray.push({
+            ...campus,
+            puntajeCM2: puntajePonderadoConM2,
+            puntajeSM2: puntajePonderadoSinM2, 
+          });
+        }
+
+        return campusArray;
+      }, []);
+
+      if(campusValidos.length > 0){
+        result.push({ nombre, codigo: datosCarrera.codigo, campus: campusValidos });
+      }
+
+      return result;
+    }, []);
+
+    setResultados(carrerasFiltradas);
+  };
+  
+  const calcularPuntajePonderado = (ponderacion, puntajes) => {
+    console.log(ponderacion, puntajes)
+    const nem = (parseFloat(ponderacion.NEM) / 100) * puntajes.nem;
+    const ranking = (parseFloat(ponderacion.Ranking) / 100) * puntajes.ranking;
+    const competenciaLectora = (parseFloat(ponderacion['Competencia Lectora']) / 100) * puntajes.competenciaLectora;
+    const competenciaMatematica1 = (parseFloat(ponderacion['Competencia Matemática 1 (M1)']) / 100) * puntajes.competenciaMatematica1;
+  
+    const competenciaMatematica2 = puntajes.competenciaMatematica2 && ponderacion['Competencia Matemática 2 (M2)'] !== 'NO EXIGE'
+      ? (parseFloat(ponderacion['Competencia Matemática 2 (M2)']) / 100) * puntajes.competenciaMatematica2
+      : 0;
+  
+    const historia = puntajes.historia ? (parseFloat(ponderacion['Historia y Ciencias Sociales']) / 100) * puntajes.historia : 0;
+    const ciencias = puntajes.ciencias ? (parseFloat(ponderacion.Ciencias) / 100) * puntajes.ciencias : 0;
+  
+    return nem + ranking + competenciaLectora + competenciaMatematica1 + competenciaMatematica2 + historia + ciencias;
   };
 
   return (
@@ -658,6 +717,37 @@ const FormularioSimulacion = () => {
           </Grid2>
         </Grid2>
       </form>
+      {resultados.length > 0 && (
+        <Box mt={4}>
+          <Typography variant="h6">Carreras que cumplen con los requisitos</Typography>
+          <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '20px' }}>
+            <thead>
+              <tr>
+                <th style={{ border: '1px solid #ddd', padding: '8px' }}>Carrera</th>
+                <th style={{ border: '1px solid #ddd', padding: '8px' }}>Campus</th>
+                <th style={{ border: '1px solid #ddd', padding: '8px' }}>Puntaje Mínimo</th>
+                <th style={{ border: '1px solid #ddd', padding: '8px' }}>Puntaje Selección</th>
+                <th style={{ border: '1px solid #ddd', padding: '8px' }}>Puntaje Simulación Con M2</th>
+                <th style={{ border: '1px solid #ddd', padding: '8px' }}>Puntaje Simulación Sin M2</th>
+              </tr>
+            </thead>
+            <tbody>
+              {resultados.map(carrera => (
+                carrera.campus.map((campus, index) => (
+                  <tr key={`${carrera.codigo}-${index}`}>
+                    <td style={{ border: '1px solid #ddd', padding: '8px' }}>{carrera.nombre}</td>
+                    <td style={{ border: '1px solid #ddd', padding: '8px' }}>{campus.campus}</td>
+                    <td style={{ border: '1px solid #ddd', padding: '8px' }}>{campus.puntajeMinimo}</td>
+                    <td style={{ border: '1px solid #ddd', padding: '8px' }}>{campus.puntajeSeleccion}</td>
+                    <td style={{ border: '1px solid #ddd', padding: '8px' }}>{campus.puntajeCM2.toFixed(2)}</td>
+                    <td style={{ border: '1px solid #ddd', padding: '8px' }}>{campus.puntajeSM2.toFixed(2)}</td>
+                  </tr>
+                ))
+              ))}
+            </tbody>
+          </table>
+        </Box>
+      )}
     </Box>
   );
 };
