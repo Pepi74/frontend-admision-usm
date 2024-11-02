@@ -1,6 +1,496 @@
 import React, { useState } from 'react';
 import { TextField, Button, Grid2, Typography, Box } from '@mui/material';
 
+const carreras = {
+  "ponderacion": [
+    {
+      "M2": false,
+      "NEM": "15%",
+      "Ranking": "25%",
+      "Competencia Matemática 1 (M1)": "40%",
+      "Competencia Matemática 2 (M2)": "NO EXIGE",
+      "Competencia Lectora": "10%",
+      "Ciencias": "10%",
+      "Historia y Ciencias Sociales": "10%"
+    },
+    {
+      "M2": true,
+      "NEM": "15%",
+      "Ranking": "20%",
+      "Competencia Matemática 1 (M1)": "35%",
+      "Competencia Matemática 2 (M2)": "10%",
+      "Competencia Lectora": "10%",
+      "Ciencias": "10%",
+      "Historia y Ciencias Sociales": "10%"
+    }
+  ],
+  "carreras": {
+    "Carrera o programa académico": {
+      "codigo": "Código",
+      "campus": [
+        {
+          "campus": "Campus o Sede en que se imparte",
+          "puntajeMinimo": "Puntaje Ponderado Mínimo de Postulación (*)",
+          "puntajeMaximo": "Puntaje Máximo de Selección 2024",
+          "puntajeSeleccion": "Puntaje Mínimo de Selección 2024",
+          "vacantesDemre": "Vacantes DEMRE 2025",
+          "vacantesMc": "Vacantes + MC"
+        }
+      ]
+    },
+    "Ingeniería Civil en Biotecnología*  Carrera Nueva": {
+      "codigo": "15186",
+      "campus": [
+        {
+          "campus": "Casa Central Valparaíso",
+          "puntajeMinimo": "",
+          "puntajeMaximo": "",
+          "puntajeSeleccion": "",
+          "vacantesDemre": "40",
+          "vacantesMc": "5"
+        }
+      ]
+    },
+    "Arquitectura": {
+      "codigo": "15180",
+      "campus": [
+        {
+          "campus": "Casa Central Valparaíso",
+          "puntajeMinimo": "550",
+          "puntajeMaximo": "937",
+          "puntajeSeleccion": "731,4",
+          "vacantesDemre": "80",
+          "vacantesMc": ""
+        },
+        {
+          "codigo": "15380",
+          "campus": "San Joaquín",
+          "puntajeMinimo": "550",
+          "puntajeMaximo": "905,1",
+          "puntajeSeleccion": "760,1",
+          "vacantesDemre": "70",
+          "vacantesMc": ""
+        }
+      ]
+    },
+    "Construcción Civil": {
+      "codigo": "15110",
+      "campus": [
+        {
+          "campus": "Casa Central Valparaíso",
+          "puntajeMinimo": "550",
+          "puntajeMaximo": "874,9",
+          "puntajeSeleccion": "645,6",
+          "vacantesDemre": "35",
+          "vacantesMc": "4"
+        }
+      ]
+    },
+    "Ingeniería Civil *": {
+      "codigo": "15111",
+      "campus": [
+        {
+          "campus": "Casa Central Valparaíso",
+          "puntajeMinimo": "600",
+          "puntajeMaximo": "944,6",
+          "puntajeSeleccion": "684,9",
+          "vacantesDemre": "60",
+          "vacantesMc": "4"
+        },
+        {
+          "codigo": "15311",
+          "campus": "San Joaquín",
+          "puntajeMinimo": "600",
+          "puntajeMaximo": "913,9",
+          "puntajeSeleccion": "793,8",
+          "vacantesDemre": "75",
+          "vacantesMc": "4"
+        }
+      ]
+    },
+    "Ingeniería Civil Ambiental *": {
+      "codigo": "15151",
+      "campus": [
+        {
+          "campus": "Casa Central Valparaíso",
+          "puntajeMinimo": "600",
+          "puntajeMaximo": "902,2",
+          "puntajeSeleccion": "672,5",
+          "vacantesDemre": "30",
+          "vacantesMc": "2"
+        }
+      ]
+    },
+    "Ingeniería Civil de Minas *": {
+      "codigo": "15312",
+      "campus": [
+        {
+          "campus": "San Joaquín",
+          "puntajeMinimo": "600",
+          "puntajeMaximo": "914,6",
+          "puntajeSeleccion": "753,2",
+          "vacantesDemre": "90",
+          "vacantesMc": "8"
+        }
+      ]
+    },
+    "Ingeniería Civil Eléctrica *": {
+      "codigo": "15130",
+      "campus": [
+        {
+          "campus": "Casa Central Valparaíso",
+          "puntajeMinimo": "600",
+          "puntajeMaximo": "942,2",
+          "puntajeSeleccion": "725",
+          "vacantesDemre": "60",
+          "vacantesMc": "4"
+        }
+      ]
+    },
+    "Ingeniería Civil Electrónica *": {
+      "codigo": "15131",
+      "campus": [
+        {
+          "campus": "Casa Central Valparaíso",
+          "puntajeMinimo": "600",
+          "puntajeMaximo": "953,4",
+          "puntajeSeleccion": "718,7",
+          "vacantesDemre": "70",
+          "vacantesMc": "4"
+        }
+      ]
+    },
+    "Ingeniería Civil Física *": {
+      "codigo": "15184",
+      "campus": [
+        {
+          "campus": "Casa Central Valparaíso",
+          "puntajeMinimo": "600",
+          "puntajeMaximo": "935,6",
+          "puntajeSeleccion": "737,2",
+          "vacantesDemre": "30",
+          "vacantesMc": "2"
+        },
+        {
+          "codigo": "15384",
+          "campus": "San Joaquín",
+          "puntajeMinimo": "600",
+          "puntajeMaximo": "970,4",
+          "puntajeSeleccion": "7746,2",
+          "vacantesDemre": "35",
+          "vacantesMc": "2"
+        }
+      ]
+    },
+    "Ingeniería Civil Industrial *": {
+      "codigo": "15170",
+      "campus": [
+        {
+          "campus": "Casa Central Valparaíso",
+          "puntajeMinimo": "600",
+          "puntajeMaximo": "946",
+          "puntajeSeleccion": "792,7",
+          "vacantesDemre": "140",
+          "vacantesMc": "6"
+        }
+      ]
+    },
+    "Ingeniería Civil Informática *": {
+      "codigo": "15160",
+      "campus": [
+        {
+          "campus": "Casa Central Valparaíso",
+          "puntajeMinimo": "600",
+          "puntajeMaximo": "931,8",
+          "puntajeSeleccion": "760,1",
+          "vacantesDemre": "120",
+          "vacantesMc": "24"
+        }
+      ]
+    },
+    "Ingeniería Civil Matemática *": {
+      "codigo": "15101",
+      "campus": [
+        {
+          "campus": "Casa Central Valparaíso",
+          "puntajeMinimo": "600",
+          "puntajeMaximo": "969,9",
+          "puntajeSeleccion": "806,7",
+          "vacantesDemre": "25",
+          "vacantesMc": "3"
+        },
+        {
+          "codigo": "15301",
+          "campus": "San Joaquín",
+          "puntajeMinimo": "600",
+          "puntajeMaximo": "929,2",
+          "puntajeSeleccion": "772,9",
+          "vacantesDemre": "30",
+          "vacantesMc": "3"
+        }
+      ]
+    },
+    "Ingeniería Civil Mecánica *": {
+      "codigo": "15140",
+      "campus": [
+        {
+          "campus": "Casa Central Valparaíso",
+          "puntajeMinimo": "600",
+          "puntajeMaximo": "953,9",
+          "puntajeSeleccion": "664,7",
+          "vacantesDemre": "70",
+          "vacantesMc": "6"
+        },
+        {
+          "codigo": "15340",
+          "campus": "San Joaquín",
+          "puntajeMinimo": "600",
+          "puntajeMaximo": "941,8",
+          "puntajeSeleccion": "773,2",
+          "vacantesDemre": "75",
+          "vacantesMc": "6"
+        }
+      ]
+    },
+    "Ingeniería Civil Metalúrgica *": {
+      "codigo": "15141",
+      "campus": [
+        {
+          "campus": "Casa Central Valparaíso",
+          "puntajeMinimo": "600",
+          "puntajeMaximo": "924,3",
+          "puntajeSeleccion": "675,3",
+          "vacantesDemre": "40",
+          "vacantesMc": "6"
+        }
+      ]
+    },
+    "Ingeniería Civil Plan Común *": {
+      "codigo": "15100",
+      "campus": [
+        {
+          "campus": "Casa Central Valparaíso",
+          "puntajeMinimo": "600",
+          "puntajeMaximo": "968,8",
+          "puntajeSeleccion": "699,2",
+          "vacantesDemre": "110",
+          "vacantesMc": "15"
+        },
+        {
+          "codigo": "15300",
+          "campus": "San Joaquín",
+          "puntajeMinimo": "600",
+          "puntajeMaximo": "925,3",
+          "puntajeSeleccion": "792,2",
+          "vacantesDemre": "130",
+          "vacantesMc": "20"
+        }
+      ]
+    },
+    "Ingeniería Civil Química *": {
+      "codigo": "15150",
+      "campus": [
+        {
+          "campus": "Casa Central Valparaíso",
+          "puntajeMinimo": "600",
+          "puntajeMaximo": "935,2",
+          "puntajeSeleccion": "743,2",
+          "vacantesDemre": "40",
+          "vacantesMc": "2"
+        },
+        {
+          "codigo": "15350",
+          "campus": "San Joaquín",
+          "puntajeMinimo": "600",
+          "puntajeMaximo": "926,5",
+          "puntajeSeleccion": "729,9",
+          "vacantesDemre": "50",
+          "vacantesMc": "2"
+        }
+      ]
+    },
+    "Ingeniería Civil Telemática *": {
+      "codigo": "15161",
+      "campus": [
+        {
+          "campus": "Casa Central Valparaíso",
+          "puntajeMinimo": "600",
+          "puntajeMaximo": "876,8",
+          "puntajeSeleccion": "612,2",
+          "vacantesDemre": "35",
+          "vacantesMc": "6"
+        },
+        {
+          "codigo": "15361",
+          "campus": "San Joaquín",
+          "puntajeMinimo": "600",
+          "puntajeMaximo": "931,3",
+          "puntajeSeleccion": "677,6",
+          "vacantesDemre": "50",
+          "vacantesMc": "6"
+        }
+      ]
+    },
+    "Ingeniería Comercial": {
+      "codigo": "15171",
+      "campus": [
+        {
+          "campus": "Casa Central Valparaíso",
+          "puntajeMinimo": "550",
+          "puntajeMaximo": "931,1",
+          "puntajeSeleccion": "688,5",
+          "vacantesDemre": "120",
+          "vacantesMc": ""
+        },
+        {
+          "codigo": "15271",
+          "campus": "Vitacura",
+          "puntajeMinimo": "550",
+          "puntajeMaximo": "930",
+          "puntajeSeleccion": "747,2",
+          "vacantesDemre": "200",
+          "vacantesMc": ""
+        }
+      ]
+    },
+    "Ingeniería en Aviación Comercial *": {
+      "codigo": "15220",
+      "campus": [
+        {
+          "campus": "Vitacura",
+          "puntajeMinimo": "550",
+          "puntajeMaximo": "880,3",
+          "puntajeSeleccion": "683,8",
+          "vacantesDemre": "35",
+          "vacantesMc": "3"
+        }
+      ]
+    },
+    "Ingeniería en Biotecnología *": {
+      "codigo": "15485",
+      "campus": [
+        {
+          "campus": "Viña del Mar",
+          "puntajeMinimo": "500",
+          "puntajeMaximo": "877,8",
+          "puntajeSeleccion": "680,4",
+          "vacantesDemre": "30",
+          "vacantesMc": "6"
+        }
+      ]
+    },
+    "Ingeniería en Diseño de Productos *": {
+      "codigo": "15181",
+      "campus": [
+        {
+          "campus": "Casa Central Valparaíso",
+          "puntajeMinimo": "550",
+          "puntajeMaximo": "824,1",
+          "puntajeSeleccion": "605,1",
+          "vacantesDemre": "20",
+          "vacantesMc": "4"
+        },
+        {
+          "codigo": "15381",
+          "campus": "San Joaquín",
+          "puntajeMinimo": "550",
+          "puntajeMaximo": "830,7",
+          "puntajeSeleccion": "609,5",
+          "vacantesDemre": "25",
+          "vacantesMc": "4"
+        }
+      ]
+    },
+    "Ingeniería en Fabricación y Diseño Industrial *": {
+      "codigo": "15441",
+      "campus": [
+        {
+          "campus": "Viña del Mar",
+          "puntajeMinimo": "500",
+          "puntajeMaximo": "882,8",
+          "puntajeSeleccion": "516,6",
+          "vacantesDemre": "20",
+          "vacantesMc": "4"
+        }
+      ]
+    },
+    "Ingeniería en Informática *": {
+      "codigo": "15462",
+      "campus": [
+        {
+          "campus": "Viña del Mar",
+          "puntajeMinimo": "500",
+          "puntajeMaximo": "870,5",
+          "puntajeSeleccion": "645,5",
+          "vacantesDemre": "70",
+          "vacantesMc": "10"
+        }
+      ]
+    },
+    "Ingeniería en Mantenimiento Industrial *": {
+      "codigo": "15440",
+      "campus": [
+        {
+          "campus": "Viña del Mar",
+          "puntajeMinimo": "500",
+          "puntajeMaximo": "771,7",
+          "puntajeSeleccion": "504,3",
+          "vacantesDemre": "35",
+          "vacantesMc": "6"
+        }
+      ]
+    },
+    "Ingeniería en Prevención de Riesgos Laborales y Ambientales *": {
+      "codigo": "15474",
+      "campus": [
+        {
+          "campus": "Viña del Mar",
+          "puntajeMinimo": "500",
+          "puntajeMaximo": "828,2",
+          "puntajeSeleccion": "514,6",
+          "vacantesDemre": "15",
+          "vacantesMc": "3"
+        }
+      ]
+    },
+    "Licenciatura en Astrofísica": {
+      "codigo": "15103",
+      "campus": [
+        {
+          "campus": "Casa Central Valparaíso",
+          "puntajeMinimo": "600",
+          "puntajeMaximo": "937,8",
+          "puntajeSeleccion": "739,8",
+          "vacantesDemre": "25",
+          "vacantesMc": "2"
+        },
+        {
+          "codigo": "15303",
+          "campus": "San Joaquín",
+          "puntajeMinimo": "600",
+          "puntajeMaximo": "884,6",
+          "puntajeSeleccion": "701,5",
+          "vacantesDemre": "30",
+          "vacantesMc": "2"
+        }
+      ]
+    },
+    "Licenciatura en Física": {
+      "codigo": "15102",
+      "campus": [
+        {
+          "campus": "Casa Central Valparaíso",
+          "puntajeMinimo": "600",
+          "puntajeMaximo": "946,9",
+          "puntajeSeleccion": "633,6",
+          "vacantesDemre": "15",
+          "vacantesMc": "2"
+        }
+      ]
+    }
+  }
+};
+
 const styleButtonLimpiar ={
   backgroundColor: 'transparent',
   border: '1px solid #000',

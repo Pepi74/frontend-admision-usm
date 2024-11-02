@@ -58,7 +58,7 @@ const Informaciones = () => {
             
             <Grid size={{ xs: 12, md: 3 }}>
                 <List sx={style}>
-                    <ListItem sx={styleli}  component={Link} to="/noticias-admision">
+                    <ListItem sx={styleli}  component={Link} to="https://usm.cl/categorias_noticias/admision/">
                         <ListItemText primary="Noticias admisión"/>
                     </ListItem>
                     <ListItem sx={styleli}  component={Link} to="/beneficios">
