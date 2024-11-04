@@ -1,6 +1,7 @@
 import React from 'react'
 import Grid from '@mui/material/Grid2';
 import UsmLogo from '../assets/postulaciones.jpg';
+import { Link } from 'react-router-dom';
 
 const styleC = {
   border: '1px solid',
@@ -23,11 +24,11 @@ const Beneficios = () => {
       <p>Los estudiantes de la Universidad Técnica Federico Santa María, institución Acreditada por 6 años, pueden optar a las diferentes alternativas de financiamiento que otorga el Ministerio de Educación (Mineduc), las que se detallan a continuación. Por otra parte tambien posee beneficios internos para aquellos alumnos que cumplan los requisitos para postular.</p>
       <h1>Para postular</h1>
       <Grid container spacing={2} justifyContent={'center'}>
-        <Grid sx={{...styleC, background:`linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 100%), url(${UsmLogo}) lightgray 50% / cover no-repeat`}}>
+        <Grid component={Link} to="https://usm.cl/admision/beneficios/" sx={{...styleC, background:`linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 100%), url(${UsmLogo}) lightgray 50% / cover no-repeat`}}>
           <p style={{marginLeft:'10px'}}>Beneficios Mineduc</p>
         </Grid>
-        <Grid sx={{...styleC, background:`linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 100%), url(${UsmLogo}) lightgray 50% / cover no-repeat`}}>
-          <p style={{marginLeft:'10px'}}>Beneficios Internos</p>
+        <Grid component={Link} to="https://rree.usm.cl/atencion-social-beneficios/beneficios-usm/" sx={{...styleC, background:`linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 100%), url(${UsmLogo}) lightgray 50% / cover no-repeat`}}>
+          <p style={{marginLeft:'10px'}}>Beneficios USM</p>
         </Grid>
       </Grid>
       <h1 style={{paddingTop:'50px'}}>Mas información</h1>
