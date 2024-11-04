@@ -20,8 +20,8 @@ const styleC = {
     backgroundColor: '#fff',
     textAlign: 'initial',
     height: '165px', 
-    borderRadius: 2,
-    //boxShadow: '0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);',
+    borderRadius: "20px",
+    //boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
     backgroundSize: 'cover', 
     transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
     alignContent: 'end',
@@ -117,7 +117,7 @@ const Carrusel = () => {
             <Slider {...settings}>
                 {items.map((item, index) => (
                     <Grid sx={styleC} key={index} onMouseDown={clickAbajo} onMouseUp={() => clickArriba(item.path,item.value)}>
-                        <Box sx={{ ...styleC, backgroundImage: `url(${item.image})`}}>
+                        <Box sx={{ ...styleC, background: `linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 100%), url(${item.image}) lightgray 50% / cover no-repeat`}}>
                             <h3 className='titulo-recuadro'>{item.title}</h3>
                         </Box>
                     </Grid>
