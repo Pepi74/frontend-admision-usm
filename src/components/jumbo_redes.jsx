@@ -17,15 +17,15 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const styleBoxYT = {
-    backgroundColor: 'red',
+    backgroundColor: '#FF0000',
     borderRadius: '10px',
 };
 const styleBoxFB = {
-    backgroundColor: 'blue',
+    backgroundColor: "#3B5998",
     borderRadius: '10px',
 };
 const styleBoxIG = {
-    backgroundColor: 'purple',
+    backgroundColor: '#990099',
     borderRadius: '10px',
 };
 const styleBoxTT = {

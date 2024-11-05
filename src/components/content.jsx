@@ -10,28 +10,31 @@ import Button from '@mui/material/Button';
 
 const style = {
   py: 0,
-  borderRadius: 2,
+  borderRadius: "10px",
   border: '1px solid',
   borderColor: 'divider',
-  backgroundColor: 'background.paper',
+  background: '#F5F5F5',
   boxShadow: '0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);',
   padding: 2,
 };
 
 const styleli = {
-    border: '1px solid #bbb',
-    borderRadius: '20px',
+    border: '1px solid #000',
+    borderRadius: '10px',
+    background: '#FFF',
     marginTop: 1,
-    color: 'black'
+    color: 'black',
+    textAlign: 'center'
+
 }
 
 const styleC = {
     border: '1px solid',
     borderColor: 'divider',
-    backgroundColor: '#fff',
+    background: `linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0.18%, #000 99.82%), url(${UsmLogo}) lightgray 50% / cover no-repeat`,
     textAlign: 'center',
     height: '265px', 
-    borderRadius: 2,
+    borderRadius: "10px",
     boxShadow: '0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);',
     display: 'flex',
     justifyContent: 'initial',
@@ -52,7 +55,6 @@ const Informaciones = () => {
     return (
         <Grid container spacing={2} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <Grid size={{ xs: 12, md: 6 }} sx={styleC}>
-                <img src={UsmLogo} alt="Admisión USM" style={{ width: '100%', height: '265px', maxHeight: '265px', objectFit: 'cover', borderRadius: '5px' }} />
                 <Button variant="contained" sx={styleButtonPostular} component={Link} to="/postulaciones"> Postula aquí</Button>
             </Grid>
             
