@@ -6,14 +6,15 @@ import { Link } from 'react-router-dom';
 const styleC = {
   border: '1px solid',
   borderColor: 'divider',
-  backgroundColor: '#fff',
   textAlign: 'center',
-  height: '265px', 
-  borderRadius: 2,
+  height: '205px',
+  width: '100%',
+  borderRadius: "10px",
   boxShadow: '0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);',
   display: 'flex',
   justifyContent: 'initial',
   alignItems: 'end',
+  color: '#fff',
 }
 
 const Aranceles = () => {
@@ -22,11 +23,11 @@ const Aranceles = () => {
       <p>La Universidad Técnica Federico Santa María, de acuerdo a los decretos 623/2023, 624/2023 y 625/2023, ha fijado los valores de arancel y derecho básico de matrícula para estudiantes nuevos para las Carreras de Pregrado y Programas Científicos admisión 2024.
         Estos se dividen en:</p>
       
-      <div style={{ display: 'flex', flexDirection: 'row', gap: '20px', justifyContent: 'center', paddingTop: '40px' }}>
-        <Grid size={{ xs: 12, md: 6 }} sx={{ ...styleC, padding: 0 }}>
+      <div className='contenedor_arancel'>
+        <Grid sx={{ ...styleC, padding: 0 }}>
           <a href="https://usm.cl/admision/aranceles/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit', position: 'relative', display: 'block', height: '100%' }}>
             <div style={{ position: 'relative', display: 'flex', justifyContent: 'left', alignItems: 'end', fontWeight: 'bold'}}>
-              <img src={UsmLogo} alt="Admisión USM" style={{ width: '100%', height: '265px', objectFit: 'cover', borderRadius: '5px' }} />
+              <img src={UsmLogo} alt="Admisión USM" className='img-arancel' />
               <p style={{ 
                 position: 'absolute', 
                 color: 'white', 
@@ -41,10 +42,10 @@ const Aranceles = () => {
           </a>
         </Grid>
 
-        <Grid size={{ xs: 12, md: 6 }} sx={{ ...styleC, padding: 0 }}>
+        <Grid sx={{ ...styleC, padding: 0 }}>
           <a href="https://usm.cl/admision/carreras-vespertinas/aranceles/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit', position: 'relative', display: 'block', height: '100%' }}>
             <div style={{ position: 'relative', display: 'flex', justifyContent: 'left', alignItems: 'end' }}>
-              <img src={UsmLogo} alt="Admisión USM" style={{ width: '100%', height: '265px', objectFit: 'cover', borderRadius: '5px' }} />
+              <img src={UsmLogo} alt="Admisión USM" className='img-arancel'/>
               <p style={{ 
                 position: 'absolute', 
                 color: 'white', 
@@ -59,6 +60,7 @@ const Aranceles = () => {
           </a>
         </Grid>
       </div>
+        
     </div>
   )
 }
