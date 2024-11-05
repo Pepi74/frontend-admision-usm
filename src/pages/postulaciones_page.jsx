@@ -38,7 +38,7 @@ export const PostulacionesPage = () => {
     <br/>
     <div style={{display: 'flex',flexDirection: 'row', gap: '20px', justifyContent: 'center'}}>
         <Postulaciones/>
-        <hr style={{height: '100px', margin: '10px'}}/>
+        <hr style={{margin: '10px'}}/>
         <Postular/>
     </div>
     </>
