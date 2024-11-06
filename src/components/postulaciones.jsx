@@ -28,12 +28,8 @@ const Postulaciones = () => {
 
   const nivelesAcademicos = [
     "Seleccione un nivel",
-    "Media Incompleta",
-    "Media Completa",
-    "Técnico Incompleta",
-    "Técnico Completa",
-    "Superior Incompleta",
-    "Superior Completa"
+    "Pregrado",
+    "Postgrado"
   ];
 
   const programasEstudio = [
