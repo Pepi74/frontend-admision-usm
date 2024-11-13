@@ -41,6 +41,12 @@ export const PostulacionesPage = () => {
         <hr style={{margin: '10px'}}/>
         <Postular/>
     </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
     </>
   )
 }
