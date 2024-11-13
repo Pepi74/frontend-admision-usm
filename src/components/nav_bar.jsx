@@ -11,7 +11,7 @@ export const NavBar = () => {
     <>
     <nav className='nav-bar'>
       <div className='nav-bar-container'>
-        <a className='nav-bar-a' href='https://www.usm.cl/'> USM.cl </a>
+        <a className='nav-bar-a' href='https://www.usm.cl/' target="_blank" rel="noopener noreferrer"> USM.cl </a>
       </div>
       <div className='nav-bar-container'>
         <NavLink className={navLinkClass} to='/'>

@@ -60,16 +60,16 @@ const Informaciones = () => {
             
             <Grid size={{ xs: 12, md: 3 }}>
                 <List sx={style}>
-                    <ListItem sx={styleli}  component={Link} to="https://usm.cl/categorias_noticias/admision/">
+                    <ListItem sx={styleli} component={Link} to="https://usm.cl/categorias_noticias/admision/" target="_blank" rel="noopener noreferrer">
                         <ListItemText primary="Noticias admisión"/>
                     </ListItem>
-                    <ListItem sx={styleli}  component={Link} to="/beneficios">
+                    <ListItem sx={styleli} component={Link} to="/beneficios">
                         <ListItemText primary="Beneficios" />
                     </ListItem>
-                    <ListItem sx={styleli}  component={Link} to="/aranceles">
+                    <ListItem sx={styleli} component={Link} to="/aranceles">
                         <ListItemText primary="Aranceles" />
                     </ListItem>
-                    <ListItem sx={styleli}  component={Link} to="/oferta">
+                    <ListItem sx={styleli} component={Link} to="/oferta">
                         <ListItemText primary="Conoce nuestra oferta" />
                     </ListItem>
                 </List>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { TextField, Button, Grid2, Typography, Box } from '@mui/material';
 
 const carreras = {
@@ -506,6 +506,8 @@ const styleButtonSimular ={
 
 const FormularioSimulacion = () => {
   const [resultados, setResultados] = useState([]);
+  const [sinResultados, setSinResultados] = useState(false);
+  const resultadosRef = useRef(null)
 
   const [formData, setFormData] = useState({
     nem: '',
@@ -516,6 +518,13 @@ const FormularioSimulacion = () => {
     ciencias: '',
     competenciaMatematica2: ''
   });
+
+  useEffect(() => {
+    // Si hay resultados, hace scroll hacia el contenedor de resultados
+    if (resultados.length > 0 || sinResultados) {
+      resultadosRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [resultados, sinResultados]); 
 
   const handleChange = (e) => {
     setFormData({
@@ -535,6 +544,7 @@ const FormularioSimulacion = () => {
       competenciaMatematica2: ''
     });
     setResultados([]);
+    setSinResultados(false);
   };
 
   const handleSubmit = (e) => {
@@ -584,6 +594,7 @@ const FormularioSimulacion = () => {
     }, []);
 
     setResultados(carrerasFiltradas);
+    setSinResultados(carrerasFiltradas.length === 0);
   };
   
   const calcularPuntajePonderado = (ponderacion, puntajes) => {
@@ -717,37 +728,44 @@ const FormularioSimulacion = () => {
           </Grid2>
         </Grid2>
       </form>
-      {resultados.length > 0 && (
-        <Box mt={4}>
-          <Typography variant="h6">Carreras que cumplen con los requisitos</Typography>
-          <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '20px' }}>
-            <thead>
-              <tr>
-                <th style={{ border: '1px solid #ddd', padding: '8px' }}>Carrera</th>
-                <th style={{ border: '1px solid #ddd', padding: '8px' }}>Campus</th>
-                <th style={{ border: '1px solid #ddd', padding: '8px' }}>Puntaje Mínimo</th>
-                <th style={{ border: '1px solid #ddd', padding: '8px' }}>Puntaje Selección</th>
-                <th style={{ border: '1px solid #ddd', padding: '8px' }}>Puntaje Simulación Con M2</th>
-                <th style={{ border: '1px solid #ddd', padding: '8px' }}>Puntaje Simulación Sin M2</th>
-              </tr>
-            </thead>
-            <tbody>
-              {resultados.map(carrera => (
-                carrera.campus.map((campus, index) => (
-                  <tr key={`${carrera.codigo}-${index}`}>
-                    <td style={{ border: '1px solid #ddd', padding: '8px' }}>{carrera.nombre}</td>
-                    <td style={{ border: '1px solid #ddd', padding: '8px' }}>{campus.campus}</td>
-                    <td style={{ border: '1px solid #ddd', padding: '8px' }}>{campus.puntajeMinimo}</td>
-                    <td style={{ border: '1px solid #ddd', padding: '8px' }}>{campus.puntajeSeleccion}</td>
-                    <td style={{ border: '1px solid #ddd', padding: '8px' }}>{campus.puntajeCM2.toFixed(2)}</td>
-                    <td style={{ border: '1px solid #ddd', padding: '8px' }}>{campus.puntajeSM2.toFixed(2)}</td>
-                  </tr>
-                ))
-              ))}
-            </tbody>
-          </table>
-        </Box>
-      )}
+      <Box ref={resultadosRef}>
+        {resultados.length > 0 && (
+          <Box mt={4}>
+            <Typography variant="h6">Carreras que cumplen con los requisitos</Typography>
+            <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '20px' }}>
+              <thead>
+                <tr>
+                  <th style={{ border: '1px solid #ddd', padding: '8px' }}>Carrera</th>
+                  <th style={{ border: '1px solid #ddd', padding: '8px' }}>Campus</th>
+                  <th style={{ border: '1px solid #ddd', padding: '8px' }}>Puntaje Mínimo</th>
+                  <th style={{ border: '1px solid #ddd', padding: '8px' }}>Puntaje Selección</th>
+                  <th style={{ border: '1px solid #ddd', padding: '8px' }}>Puntaje Simulación Con M2</th>
+                  <th style={{ border: '1px solid #ddd', padding: '8px' }}>Puntaje Simulación Sin M2</th>
+                </tr>
+              </thead>
+              <tbody>
+                {resultados.map(carrera => (
+                  carrera.campus.map((campus, index) => (
+                    <tr key={`${carrera.codigo}-${index}`}>
+                      <td style={{ border: '1px solid #ddd', padding: '8px' }}>{carrera.nombre}</td>
+                      <td style={{ border: '1px solid #ddd', padding: '8px' }}>{campus.campus}</td>
+                      <td style={{ border: '1px solid #ddd', padding: '8px' }}>{campus.puntajeMinimo}</td>
+                      <td style={{ border: '1px solid #ddd', padding: '8px' }}>{campus.puntajeSeleccion}</td>
+                      <td style={{ border: '1px solid #ddd', padding: '8px' }}>{campus.puntajeCM2.toFixed(2)}</td>
+                      <td style={{ border: '1px solid #ddd', padding: '8px' }}>{campus.puntajeSM2.toFixed(2)}</td>
+                    </tr>
+                  ))
+                ))}
+              </tbody>
+            </table>
+          </Box>
+        )}
+        {sinResultados && resultados.length === 0 && (
+          <Box mt={4}>
+            <Typography variant="h6">No se encontraron carreras que cumplan con los requisitos ingresados.</Typography>
+          </Box>
+        )}
+      </Box>
     </Box>
   );
 };
