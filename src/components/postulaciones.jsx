@@ -93,11 +93,26 @@ const Postulaciones = () => {
     setShowDropdownC(false);
   };
 
+  const toggleDropdownN = () => {
+    setShowDropdownN(!showDropdownN);
+    if (!showDropdownN) setShowDropdownC(false);
+  };
+
+  const toggleDropdownC = () => {
+    setShowDropdownC(!showDropdownC);
+    if (!showDropdownC) setShowDropdownN(false);
+  };
+
+  const closeDropdowns = () => {
+    if(showDropdownN) setShowDropdownN(false);
+    if(showDropdownC) setShowDropdownC(false);
+  }
+
   return (
-    <div style={{ display: 'flex', justifyContent: 'center'}}>
-      <form onSubmit={handleSubmit} style={{ width: '300px' }}>
-        <h2>Realiza tu postulacion</h2>
-        {error && <p style={{ color: 'red' }}>{error}</p>}        
+    <div style={{ display: 'flex', justifyContent: 'center', padding: '0px 20px', background: '#f9f9f9', borderRadius: '10px', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)'}} onClick={closeDropdowns}>
+      <form onSubmit={handleSubmit} style={{ width: '300px', padding: '0px 30px', borderRadius: '10px' }}>
+        <h2 style={{ marginBottom: '20px', textAlign: 'center', color: '#333' }}>Realiza tu postulacion</h2>
+        {error && <p style={{ color: 'red', textAlign: 'center' }}>{error}</p>}        
         <div style={{paddingTop:'10px'}}>
           <label>
             <b>Correo Electrónico</b>
@@ -139,7 +154,7 @@ const Postulaciones = () => {
               justifyContent: 'space-between',
               alignItems: 'center'
             }}
-            onClick={() => setShowDropdownN(!showDropdownN)}
+            onClick={toggleDropdownN}
           >
             <span>{nivelAcademico || "Seleccione un nivel"}</span>
             <span style={{ marginLeft: '10px' }}>˅</span>
@@ -152,10 +167,10 @@ const Postulaciones = () => {
                 padding: '0', 
                 margin: '0', 
                 position: 'absolute', 
-                bottom: '100%', 
+                top: '100%', 
                 left: 0, 
                 width: '100%', 
-                maxHeight: '35vh', 
+                maxHeight: '15em', 
                 overflowY: 'auto', 
                 border: '1px solid #ccc',
                 background: '#D9D9D9',  
@@ -166,7 +181,7 @@ const Postulaciones = () => {
                 <li 
                   key={index} 
                   onClick={() => handleDropdownSelectN(nivel)} 
-                  style={{ padding: '8px', cursor: 'pointer' }}
+                  style={{ height: '2.5rem', display: 'flex', alignItems: 'center', padding: '0 8px', cursor: 'pointer' }}
                 >
                   {nivel}
                 </li>
@@ -190,7 +205,7 @@ const Postulaciones = () => {
               justifyContent: 'space-between',
               alignItems: 'center'
             }}
-            onClick={() => setShowDropdownC(!showDropdownC)}
+            onClick={toggleDropdownC}
           >
             <span>{programaEstudio || "Seleccione una carrera"}</span>
             <span style={{ marginLeft: '10px' }}>˅</span>
@@ -203,10 +218,10 @@ const Postulaciones = () => {
                 padding: '0', 
                 margin: '0', 
                 position: 'absolute', 
-                bottom: '100%', 
+                top: '100%', 
                 left: 0, 
                 width: '100%', 
-                maxHeight: '35vh', 
+                maxHeight: '15em', 
                 overflowY: 'auto', 
                 border: '1px solid #ccc',
                 background: '#D9D9D9',  
@@ -217,7 +232,7 @@ const Postulaciones = () => {
                 <li 
                   key={index} 
                   onClick={() => handleDropdownSelectC(programa)} 
-                  style={{ padding: '8px', cursor: 'pointer' }}
+                  style={{ height: '2.5rem', display: 'flex', alignItems: 'center', padding: '0 8px', cursor: 'pointer' }}
                 >
                   {programa}
                 </li>
@@ -226,7 +241,7 @@ const Postulaciones = () => {
           )}
         </div>
 
-        <button type="submit" style={{ marginTop: '10px', width: '100%', padding: '10px', background: '#FCD13A', borderRadius: '20px', boxShadow: 'box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)'}}><b>Enviar Postulación</b></button>
+        <button type="submit" style={{ marginTop: '20px', width: '100%', padding: '10px', background: '#FCD13A', borderRadius: '20px', boxShadow: 'box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)', cursor: 'pointer'}}><b>Enviar Postulación</b></button>
       </form>
     </div>
   )
