@@ -634,6 +634,7 @@ const FormularioSimulacion = () => {
               required
               type="number"
               placeholder="Digita el puntaje"
+              slotProps={{ htmlInput: { min: 100, max: 1000 } }}
             />
           </Grid2>
           <Grid2 item size={{ xs: 12, sm: 6}}>
@@ -646,6 +647,7 @@ const FormularioSimulacion = () => {
               required
               type="number"
               placeholder="Digita el puntaje"
+              slotProps={{ htmlInput: { min: 100, max: 1000 } }}
             />
           </Grid2>
           <Grid2 item size={{ xs: 12, sm: 6}}>
@@ -658,6 +660,7 @@ const FormularioSimulacion = () => {
               required
               type="number"
               placeholder="Digita el puntaje"
+              slotProps={{ htmlInput: { min: 100, max: 1000 } }}
             />
           </Grid2>
           <Grid2 item size={{ xs: 12, sm: 6}}>
@@ -670,6 +673,7 @@ const FormularioSimulacion = () => {
               required
               type="number"
               placeholder="Digita el puntaje"
+              slotProps={{ htmlInput: { min: 100, max: 1000 } }}
             />
           </Grid2>
           <Grid2 item size={{ xs: 12, sm: 6}}>
@@ -681,6 +685,7 @@ const FormularioSimulacion = () => {
               fullWidth
               type="number"
               placeholder="Digita el puntaje"
+              slotProps={{ htmlInput: { min: 100, max: 1000 } }}
             />
           </Grid2>
           <Grid2 item size={{ xs: 12, sm: 6}}>
@@ -692,6 +697,7 @@ const FormularioSimulacion = () => {
               fullWidth
               type="number"
               placeholder="Digita el puntaje"
+              slotProps={{ htmlInput: { min: 100, max: 1000 } }}
             />
           </Grid2>
           <Grid2 item size={{ xs: 12, sm: 6}}>
@@ -703,6 +709,7 @@ const FormularioSimulacion = () => {
               fullWidth
               type="number"
               placeholder="Digita el puntaje"
+              slotProps={{ htmlInput: { min: 100, max: 1000 } }}
             />
           </Grid2>
 
