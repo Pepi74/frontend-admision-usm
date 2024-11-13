@@ -170,18 +170,21 @@ const Postulaciones = () => {
                 top: '100%', 
                 left: 0, 
                 width: '100%', 
-                maxHeight: '15em', 
+                maxHeight: '21em', 
                 overflowY: 'auto', 
                 border: '1px solid #ccc',
                 background: '#D9D9D9',  
-                zIndex: 1 
+                zIndex: 1,
+                borderRadius: '10px'
               }}
             >
               {nivelesAcademicos.map((nivel, index) => (
                 <li 
                   key={index} 
+                  onMouseEnter={(e) => e.target.style.backgroundColor = '#f1f1f1'}
+                  onMouseLeave={(e) => e.target.style.backgroundColor = ''}
                   onClick={() => handleDropdownSelectN(nivel)} 
-                  style={{ height: '2.5rem', display: 'flex', alignItems: 'center', padding: '0 8px', cursor: 'pointer' }}
+                  style={{ height: '3.5rem', display: 'flex', alignItems: 'center', padding: '0 8px', cursor: 'pointer' }}
                 >
                   {nivel}
                 </li>
@@ -221,18 +224,21 @@ const Postulaciones = () => {
                 top: '100%', 
                 left: 0, 
                 width: '100%', 
-                maxHeight: '15em', 
+                maxHeight: '21em', 
                 overflowY: 'auto', 
                 border: '1px solid #ccc',
                 background: '#D9D9D9',  
-                zIndex: 1 
+                zIndex: 1,
+                borderRadius: '10px'
               }}
             >
               {programasEstudio.map((programa, index) => (
                 <li 
                   key={index} 
+                  onMouseEnter={(e) => e.target.style.backgroundColor = '#f1f1f1'}
+                  onMouseLeave={(e) => e.target.style.backgroundColor = ''}
                   onClick={() => handleDropdownSelectC(programa)} 
-                  style={{ height: '2.5rem', display: 'flex', alignItems: 'center', padding: '0 8px', cursor: 'pointer' }}
+                  style={{ height: '3.5rem', display: 'flex', alignItems: 'center', padding: '0px 10px', cursor: 'pointer' }}
                 >
                   {programa}
                 </li>

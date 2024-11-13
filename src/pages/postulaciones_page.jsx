@@ -10,7 +10,7 @@ export const PostulacionesPage = () => {
   };
 
   return (
-    <>
+    <div style={{paddingBottom: '15em'}}>
       {showAlert && (
         <div style={{display: 'flex', justifyContent: 'center', marginBottom: '20px'}}>
           <div style={{
@@ -46,13 +46,7 @@ export const PostulacionesPage = () => {
         <hr style={{margin: '10px'}}/>
         <Postular/>
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-    </>
+    </div>
   );
 }
 
