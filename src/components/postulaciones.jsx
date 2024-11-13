@@ -109,10 +109,10 @@ const Postulaciones = () => {
   }
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center'}} onClick={closeDropdowns}>
-      <form onSubmit={handleSubmit} style={{ width: '300px' }}>
-        <h2>Realiza tu postulacion</h2>
-        {error && <p style={{ color: 'red' }}>{error}</p>}        
+    <div style={{ display: 'flex', justifyContent: 'center', padding: '0px 20px', background: '#f9f9f9', borderRadius: '10px', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)'}} onClick={closeDropdowns}>
+      <form onSubmit={handleSubmit} style={{ width: '300px', padding: '0px 30px', borderRadius: '10px' }}>
+        <h2 style={{ marginBottom: '20px', textAlign: 'center', color: '#333' }}>Realiza tu postulacion</h2>
+        {error && <p style={{ color: 'red', textAlign: 'center' }}>{error}</p>}        
         <div style={{paddingTop:'10px'}}>
           <label>
             <b>Correo Electrónico</b>
@@ -241,7 +241,7 @@ const Postulaciones = () => {
           )}
         </div>
 
-        <button type="submit" style={{ marginTop: '10px', width: '100%', padding: '10px', background: '#FCD13A', borderRadius: '20px', boxShadow: 'box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)'}}><b>Enviar Postulación</b></button>
+        <button type="submit" style={{ marginTop: '20px', width: '100%', padding: '10px', background: '#FCD13A', borderRadius: '20px', boxShadow: 'box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)', cursor: 'pointer'}}><b>Enviar Postulación</b></button>
       </form>
     </div>
   )
