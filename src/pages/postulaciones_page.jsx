@@ -10,7 +10,7 @@ export const PostulacionesPage = () => {
   };
 
   return (
-    <>
+    <div style={{paddingBottom: '15em'}}>
       {showAlert && (
         <div style={{display: 'flex', justifyContent: 'center', marginBottom: '20px'}}>
           <div style={{
@@ -36,7 +36,7 @@ export const PostulacionesPage = () => {
             >
               X
             </button>
-            <h3 style={{marginTop: '-10px'}}>Recuerda</h3>
+            <h3 style={{marginTop: '0'}}>Recuerda</h3>
             <p style={{margin: '0'}}>Si ya postulaste mediante <a href='https://www.demre.cl'>DEMRE.cl</a> no es necesario postular por este sitio.</p>
           </div>
         </div>
@@ -46,13 +46,7 @@ export const PostulacionesPage = () => {
         <hr style={{margin: '10px'}}/>
         <Postular/>
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-    </>
+    </div>
   );
 }
 
