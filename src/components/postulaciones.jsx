@@ -93,8 +93,23 @@ const Postulaciones = () => {
     setShowDropdownC(false);
   };
 
+  const toggleDropdownN = () => {
+    setShowDropdownN(!showDropdownN);
+    if (!showDropdownN) setShowDropdownC(false);
+  };
+
+  const toggleDropdownC = () => {
+    setShowDropdownC(!showDropdownC);
+    if (!showDropdownC) setShowDropdownN(false);
+  };
+
+  const closeDropdowns = () => {
+    if(showDropdownN) setShowDropdownN(false);
+    if(showDropdownC) setShowDropdownC(false);
+  }
+
   return (
-    <div style={{ display: 'flex', justifyContent: 'center'}}>
+    <div style={{ display: 'flex', justifyContent: 'center'}} onClick={closeDropdowns}>
       <form onSubmit={handleSubmit} style={{ width: '300px' }}>
         <h2>Realiza tu postulacion</h2>
         {error && <p style={{ color: 'red' }}>{error}</p>}        
@@ -139,7 +154,7 @@ const Postulaciones = () => {
               justifyContent: 'space-between',
               alignItems: 'center'
             }}
-            onClick={() => setShowDropdownN(!showDropdownN)}
+            onClick={toggleDropdownN}
           >
             <span>{nivelAcademico || "Seleccione un nivel"}</span>
             <span style={{ marginLeft: '10px' }}>˅</span>
@@ -155,7 +170,7 @@ const Postulaciones = () => {
                 top: '100%', 
                 left: 0, 
                 width: '100%', 
-                maxHeight: '35vh', 
+                maxHeight: '15em', 
                 overflowY: 'auto', 
                 border: '1px solid #ccc',
                 background: '#D9D9D9',  
@@ -166,7 +181,7 @@ const Postulaciones = () => {
                 <li 
                   key={index} 
                   onClick={() => handleDropdownSelectN(nivel)} 
-                  style={{ padding: '8px', cursor: 'pointer' }}
+                  style={{ height: '2.5rem', display: 'flex', alignItems: 'center', padding: '0 8px', cursor: 'pointer' }}
                 >
                   {nivel}
                 </li>
@@ -190,7 +205,7 @@ const Postulaciones = () => {
               justifyContent: 'space-between',
               alignItems: 'center'
             }}
-            onClick={() => setShowDropdownC(!showDropdownC)}
+            onClick={toggleDropdownC}
           >
             <span>{programaEstudio || "Seleccione una carrera"}</span>
             <span style={{ marginLeft: '10px' }}>˅</span>
@@ -206,7 +221,7 @@ const Postulaciones = () => {
                 top: '100%', 
                 left: 0, 
                 width: '100%', 
-                maxHeight: '35vh', 
+                maxHeight: '15em', 
                 overflowY: 'auto', 
                 border: '1px solid #ccc',
                 background: '#D9D9D9',  
@@ -217,7 +232,7 @@ const Postulaciones = () => {
                 <li 
                   key={index} 
                   onClick={() => handleDropdownSelectC(programa)} 
-                  style={{ padding: '8px', cursor: 'pointer' }}
+                  style={{ height: '2.5rem', display: 'flex', alignItems: 'center', padding: '0 8px', cursor: 'pointer' }}
                 >
                   {programa}
                 </li>
