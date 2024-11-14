@@ -57,28 +57,35 @@ const Carrusel = () => {
     const clickArriba = (path, val) => {
         const duracionClick = Date.now() - clickStart;
         if(duracionClick < 200){
-            if(val == 2){
-                window.location.href = 'https://usm.cl/';
-                return
-            }
-            else if(val == 3){
-                window.location.href = 'https://usm.cl/admision/';
-                return
-            }
-            else if(val == 4){
-                window.location.href = 'https://tour360.usm.cl/';
-                return
-            }
-            else if(val == 5){
-                window.location.href = 'https://cultura.usm.cl/';
-                return
-            }
-            else {
-                navigate(path)
-            }
+            let url = '';
             
+            if (val === 2){
+                url = 'https://usm.cl/';
+            } 
+            else if (val === 3){
+                url = 'https://usm.cl/admision/';
+            } 
+            else if (val === 4){
+                url = 'https://tour360.usm.cl/';
+            } 
+            else if (val === 5){
+                url = 'https://cultura.usm.cl/';
+            } 
+            
+            if(url){
+                if(url.startsWith('https://')){
+                    window.open(url, '_blank');
+                }
+                else{
+                    window.location.href = url;
+                }
+            }
+            else{
+                navigate(path);
+            }
         }
     };
+    
 
     const items = [
         { title: "Simulación de postulación PAES", image: SimuladorImg, path: '/simulador', value: 1 },

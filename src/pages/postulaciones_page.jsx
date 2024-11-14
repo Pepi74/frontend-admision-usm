@@ -55,7 +55,7 @@ export const PostulacionesPage = () => {
                 X
               </button>
               <h3 style={{marginTop: '0'}}>Recuerda</h3>
-              <p style={{margin: '0'}}>Si ya postulaste mediante <a href='https://www.demre.cl'>DEMRE.cl</a> no es necesario postular por este sitio.</p>
+              <p style={{margin: '0'}}>Si ya postulaste mediante <a href='https://www.demre.cl' target="_blank" rel="noopener noreferrer">DEMRE.cl</a> no es necesario postular por este sitio.</p>
             </div>
           </div>
         )}

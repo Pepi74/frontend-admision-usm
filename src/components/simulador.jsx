@@ -770,7 +770,7 @@ const FormularioSimulacion = () => {
           )}
           {sinResultados && resultados.length === 0 && (
             <Box mt={4}>
-              <Typography variant="h6">No se encontraron carreras que cumplan con los requisitos ingresados.</Typography>
+              <Typography variant="h6">😟 Ups, no se encontraron carreras que cumplan con los requisitos ingresados..</Typography>
             </Box>
           )}
         </Box>

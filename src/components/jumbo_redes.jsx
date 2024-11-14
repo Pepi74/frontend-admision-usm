@@ -55,7 +55,7 @@ const JumboRedes = () => {
                         </div>
                         <div style={{ paddingTop: '10px' }}>
                             <h4 style={{ color: '#fff', marginTop: '-15px' }}>@admisionusm</h4>
-                            <a href="https://www.facebook.com/AdmisionUSM/" style={{ color: '#fff' }}>Ir a Facebook 🡪</a>
+                            <a href="https://www.facebook.com/AdmisionUSM/" target="_blank" rel="noopener noreferrer" style={{ color: '#fff' }}>Ir a Facebook 🡪</a>
                         </div>
                     </Item>
                 </Grid>
@@ -67,7 +67,7 @@ const JumboRedes = () => {
                         </div>
                         <div style={{ paddingTop: '10px' }}>
                             <h4 style={{ color: '#fff', marginTop: '-15px' }}>@admisionusm</h4>
-                            <a href="https://www.instagram.com/admisionusm/" style={{ color: '#fff' }}>Ir a Instagram 🡪</a>
+                            <a href="https://www.instagram.com/admisionusm/" target="_blank" rel="noopener noreferrer" style={{ color: '#fff' }}>Ir a Instagram 🡪</a>
                         </div>
                     </Item>
                 </Grid>
@@ -79,7 +79,7 @@ const JumboRedes = () => {
                         </div>
                         <div style={{ paddingTop: '10px' }}>
                             <h4 style={{ color: '#fff', marginTop: '-15px' }}>@usmadmision</h4>
-                            <a href="https://www.youtube.com/usmadmision" style={{ color: '#fff' }}>Ir a Youtube 🡪</a>
+                            <a href="https://www.youtube.com/usmadmision" target="_blank" rel="noopener noreferrer" style={{ color: '#fff' }}>Ir a Youtube 🡪</a>
                         </div>
                     </Item>
                 </Grid>
@@ -91,7 +91,7 @@ const JumboRedes = () => {
                         </div>
                         <div style={{ paddingTop: '10px' }}>
                             <h4 style={{ color: '#fff', marginTop: '-15px' }}>@usmadmision</h4>
-                            <a href="https://www.tiktok.com/@admisionusm" style={{ color: '#fff' }}>Ir a TikTok 🡪</a>
+                            <a href="https://www.tiktok.com/@admisionusm" target="_blank" rel="noopener noreferrer" style={{ color: '#fff' }}>Ir a TikTok 🡪</a>
                         </div>
                     </Item>
                 </Grid>

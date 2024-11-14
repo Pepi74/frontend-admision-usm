@@ -26,7 +26,7 @@ const Postular = () => {
       <br />
       <h2>TOUR VIRTUAL 360°</h2>
       <Grid container spacing={1} justifyContent={'center'}>
-        <Grid component={Link} to="https://tour360.usm.cl/" sx={{...styleC, background:`linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 100%), url(${TourVirtualImg}) lightgray 50% / cover no-repeat`}}>
+        <Grid component={Link} to="https://tour360.usm.cl/" target="_blank" rel="noopener noreferrer" sx={{...styleC, background:`linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 100%), url(${TourVirtualImg}) lightgray 50% / cover no-repeat`}}>
           <p style={{marginLeft:'10px'}}>Ver recorridos virtuales</p>
         </Grid>
       </Grid>
