@@ -21,7 +21,7 @@ const Inicio = () => {
               <Route path='/simulador' element={<SimuladorPage />} />
               <Route path='/beneficios' element={<BeneficiosPage />} />
               <Route path='/beneficios/mineduc' element={<BeneficiosPageM />} />
-              <Route path='/beneficios/internos' element={<BeneficiosPageU />} />
+              <Route path='/beneficios/usm' element={<BeneficiosPageU />} />
               <Route path='/aranceles' element={<ArancelesPage />} />
               <Route path='/oferta' element={<OfertaPage />} />
               <Route path='/postulaciones' element={<PostulacionesPage />} />
