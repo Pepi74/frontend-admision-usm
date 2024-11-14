@@ -30,7 +30,7 @@ const Beneficios = () => {
         <Grid component={Link} to="/beneficios/mineduc" sx={{...styleC, background:`linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 100%), url(${BeneficiosMImg}) lightgray 50% / cover no-repeat`, textDecoration: 'none', marginBottom: '20px'}}>
           <p style={{ margin: '10px', fontSize: 'xx-large', fontWeight: 'bold' }}>Beneficios Mineduc</p>
         </Grid>
-        <Grid component={Link} to="/beneficios/internos" sx={{...styleC, background:`linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 100%), url(${BeneficiosUImg}) lightgray 50% / cover no-repeat`, textDecoration: 'none'}}>
+        <Grid component={Link} to="/beneficios/usm" sx={{...styleC, background:`linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 100%), url(${BeneficiosUImg}) lightgray 50% / cover no-repeat`, textDecoration: 'none'}}>
           <p style={{ margin: '10px', fontSize: 'xx-large', fontWeight: 'bold' }}>Beneficios USM</p>
         </Grid>
       </Grid>
