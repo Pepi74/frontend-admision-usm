@@ -19,7 +19,7 @@ const styleC = {
 
 const Aranceles = () => {
   return (
-    <div>
+    <div style={{paddingBottom: "60px"}}>
       <p>La Universidad Técnica Federico Santa María, de acuerdo a los decretos 623/2023, 624/2023 y 625/2023, ha fijado los valores de arancel y derecho básico de matrícula para estudiantes nuevos para las Carreras de Pregrado y Programas Científicos admisión 2024.
         Estos se dividen en:</p>
       

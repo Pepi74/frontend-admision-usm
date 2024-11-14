@@ -14,7 +14,7 @@ const BeneficiosM = () => {
                 <h3 style={{ fontSize: '1.5rem', color: '#34495e', marginBottom: '10px' }}>Becas</h3>
                 <p style={{ lineHeight: '1.6', fontSize: '1.1rem' }}>Una beca es un apoyo económico que entrega el Ministerio de Educación para que puedas financiar parte del costo de tus estudios, cubriendo el total o parte del arancel anual de tu carrera, y en algunos casos, la matrícula.
                 Para conocer más sobre cada una de ellas, visita  
-                    <a style={{paddingLeft: '5px'}} href="portal.beneficiosestudiantiles.cl/becas/becas-de-arancel" target="_blank" rel="noopener noreferrer">portal.beneficiosestudiantiles.cl/becas/becas-de-arancel</a>.
+                    <a style={{paddingLeft: '5px'}} href="https://portal.beneficiosestudiantiles.cl/becas/becas-de-arancel" target="_blank" rel="noopener noreferrer">portal.beneficiosestudiantiles.cl/becas/becas-de-arancel</a>.
                 </p>
                 <h3 style={{ fontSize: '1.5rem', color: '#34495e', marginBottom: '10px' }}>Creditos</h3>
                 <p style={{ lineHeight: '1.6', fontSize: '1.1rem' }}>También puedes obtener apoyo para financiar tu arancel a través de un crédito para la Educación Superior. Estos consisten en préstamos que te ayudan a cubrir parte del costo de tus estudios y que se financian con recursos estatales, los que se entregan a través de una Institución de Educación Superior o con el respaldo del Estado (en el caso del CAE).
