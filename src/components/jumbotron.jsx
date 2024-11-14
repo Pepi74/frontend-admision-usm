@@ -13,6 +13,10 @@ export const BarraLogo = () => {
         return 'CONOCE NUESTRA OFERTA 2025';
       case '/beneficios':
         return 'CONOCE MÁS DETALLES SOBRE LOS BENEFICIOS 2025';
+      case '/beneficios/mineduc':
+        return 'CONOCE MÁS DETALLES SOBRE LOS BENEFICIOS MINEDUC 2025';
+      case '/beneficios/internos':
+        return 'CONOCE MÁS DETALLES SOBRE LOS BENEFICIOS USM 2025';
       case '/aranceles':
         return 'CONOCE MÁS DETALLES SOBRE LOS ARANCELES 2025';
       case '/postulaciones':

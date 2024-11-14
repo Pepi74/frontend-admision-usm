@@ -615,165 +615,167 @@ const FormularioSimulacion = () => {
   };
 
   return (
-    <Box sx={{ backgroundColor: '#f5f5f5', padding: 10, borderRadius: 2 }}>
-      <form onSubmit={handleSubmit}>
-        <Grid2 container spacing={2}>
-          {/* Título */}
-          <Grid2 item size={{ xs: 12 }}>
-            <Typography variant="h6">Simulación de Puntajes</Typography>
-          </Grid2>
+    <>
+      <Box sx={{ backgroundColor: '#f5f5f5', padding: 10, borderRadius: 2 }}>
+        <form onSubmit={handleSubmit}>
+          <Grid2 container spacing={2}>
+            {/* Título */}
+            <Grid2 item size={{ xs: 12 }}>
+              <Typography variant="h6">Simulación de Puntajes</Typography>
+            </Grid2>
 
-          {/* Campos del formulario */}
-          <Grid2 item size={{ xs: 12, sm: 6}}>
-            <TextField
-              label="Notas de Enseñanza Media (NEM)"
-              name="nem"
-              value={formData.nem}
-              onChange={handleChange}
-              fullWidth
-              required
-              type="number"
-              placeholder="Digita el puntaje"
-              slotProps={{ htmlInput: { min: 100, max: 1000 } }}
-            />
-          </Grid2>
-          <Grid2 item size={{ xs: 12, sm: 6}}>
-            <TextField
-              label="Ranking"
-              name="ranking"
-              value={formData.ranking}
-              onChange={handleChange}
-              fullWidth
-              required
-              type="number"
-              placeholder="Digita el puntaje"
-              slotProps={{ htmlInput: { min: 100, max: 1000 } }}
-            />
-          </Grid2>
-          <Grid2 item size={{ xs: 12, sm: 6}}>
-            <TextField
-              label="Competencia Lectora"
-              name="competenciaLectora"
-              value={formData.competenciaLectora}
-              onChange={handleChange}
-              fullWidth
-              required
-              type="number"
-              placeholder="Digita el puntaje"
-              slotProps={{ htmlInput: { min: 100, max: 1000 } }}
-            />
-          </Grid2>
-          <Grid2 item size={{ xs: 12, sm: 6}}>
-            <TextField
-              label="Competencia Matemática 1 (M1)"
-              name="competenciaMatematica1"
-              value={formData.competenciaMatematica1}
-              onChange={handleChange}
-              fullWidth
-              required
-              type="number"
-              placeholder="Digita el puntaje"
-              slotProps={{ htmlInput: { min: 100, max: 1000 } }}
-            />
-          </Grid2>
-          <Grid2 item size={{ xs: 12, sm: 6}}>
-            <TextField
-              label="Historia y Ciencias Sociales **"
-              name="historia"
-              value={formData.historia}
-              onChange={handleChange}
-              fullWidth
-              type="number"
-              placeholder="Digita el puntaje"
-              slotProps={{ htmlInput: { min: 100, max: 1000 } }}
-            />
-          </Grid2>
-          <Grid2 item size={{ xs: 12, sm: 6}}>
-            <TextField
-              label="Ciencias **"
-              name="ciencias"
-              value={formData.ciencias}
-              onChange={handleChange}
-              fullWidth
-              type="number"
-              placeholder="Digita el puntaje"
-              slotProps={{ htmlInput: { min: 100, max: 1000 } }}
-            />
-          </Grid2>
-          <Grid2 item size={{ xs: 12, sm: 6}}>
-            <TextField
-              label="Competencia Matemática 2 (M2) **"
-              name="competenciaMatematica2"
-              value={formData.competenciaMatematica2}
-              onChange={handleChange}
-              fullWidth
-              type="number"
-              placeholder="Digita el puntaje"
-              slotProps={{ htmlInput: { min: 100, max: 1000 } }}
-            />
-          </Grid2>
+            {/* Campos del formulario */}
+            <Grid2 item size={{ xs: 12, sm: 6}}>
+              <TextField
+                label="Notas de Enseñanza Media (NEM)"
+                name="nem"
+                value={formData.nem}
+                onChange={handleChange}
+                fullWidth
+                required
+                type="number"
+                placeholder="Digita el puntaje"
+                slotProps={{ htmlInput: { min: 100, max: 1000 } }}
+              />
+            </Grid2>
+            <Grid2 item size={{ xs: 12, sm: 6}}>
+              <TextField
+                label="Ranking"
+                name="ranking"
+                value={formData.ranking}
+                onChange={handleChange}
+                fullWidth
+                required
+                type="number"
+                placeholder="Digita el puntaje"
+                slotProps={{ htmlInput: { min: 100, max: 1000 } }}
+              />
+            </Grid2>
+            <Grid2 item size={{ xs: 12, sm: 6}}>
+              <TextField
+                label="Competencia Lectora"
+                name="competenciaLectora"
+                value={formData.competenciaLectora}
+                onChange={handleChange}
+                fullWidth
+                required
+                type="number"
+                placeholder="Digita el puntaje"
+                slotProps={{ htmlInput: { min: 100, max: 1000 } }}
+              />
+            </Grid2>
+            <Grid2 item size={{ xs: 12, sm: 6}}>
+              <TextField
+                label="Competencia Matemática 1 (M1)"
+                name="competenciaMatematica1"
+                value={formData.competenciaMatematica1}
+                onChange={handleChange}
+                fullWidth
+                required
+                type="number"
+                placeholder="Digita el puntaje"
+                slotProps={{ htmlInput: { min: 100, max: 1000 } }}
+              />
+            </Grid2>
+            <Grid2 item size={{ xs: 12, sm: 6}}>
+              <TextField
+                label="Historia y Ciencias Sociales **"
+                name="historia"
+                value={formData.historia}
+                onChange={handleChange}
+                fullWidth
+                type="number"
+                placeholder="Digita el puntaje"
+                slotProps={{ htmlInput: { min: 100, max: 1000 } }}
+              />
+            </Grid2>
+            <Grid2 item size={{ xs: 12, sm: 6}}>
+              <TextField
+                label="Ciencias **"
+                name="ciencias"
+                value={formData.ciencias}
+                onChange={handleChange}
+                fullWidth
+                type="number"
+                placeholder="Digita el puntaje"
+                slotProps={{ htmlInput: { min: 100, max: 1000 } }}
+              />
+            </Grid2>
+            <Grid2 item size={{ xs: 12, sm: 6}}>
+              <TextField
+                label="Competencia Matemática 2 (M2) **"
+                name="competenciaMatematica2"
+                value={formData.competenciaMatematica2}
+                onChange={handleChange}
+                fullWidth
+                type="number"
+                placeholder="Digita el puntaje"
+                slotProps={{ htmlInput: { min: 100, max: 1000 } }}
+              />
+            </Grid2>
 
-          {/* Notas y Botones */}
-          <Grid2 item size={{ xs: 12}}>
-            <Typography variant="body2" color="textSecondary">
-              (*) Campo obligatorio (la nueva escala va desde el 100 al 1000)
-            </Typography>
-            <Typography variant="body2" color="textSecondary">
-              (**) Prueba optativa, omitir si no se rindió.
-            </Typography>
-          </Grid2>
+            {/* Notas y Botones */}
+            <Grid2 item size={{ xs: 12}}>
+              <Typography variant="body2" color="textSecondary">
+                (*) Campo obligatorio (la nueva escala va desde el 100 al 1000)
+              </Typography>
+              <Typography variant="body2" color="textSecondary">
+                (**) Prueba optativa, omitir si no se rindió.
+              </Typography>
+            </Grid2>
 
-          <Grid2 item size={{ xs: 12, sm: 6}}>
-            <Button onClick={handleClear} variant="outlined" style={styleButtonLimpiar} fullWidth>
-              Limpiar campos
-            </Button>
+            <Grid2 item size={{ xs: 12, sm: 6}}>
+              <Button onClick={handleClear} variant="outlined" style={styleButtonLimpiar} fullWidth>
+                Limpiar campos
+              </Button>
+            </Grid2>
+            <Grid2 item size={{ xs: 12, sm: 6}}>
+              <Button type="submit" variant="contained" style={styleButtonSimular} fullWidth>
+                Hacer simulación
+              </Button>
+            </Grid2>
           </Grid2>
-          <Grid2 item size={{ xs: 12, sm: 6}}>
-            <Button type="submit" variant="contained" style={styleButtonSimular} fullWidth>
-              Hacer simulación
-            </Button>
-          </Grid2>
-        </Grid2>
-      </form>
-      <Box ref={resultadosRef}>
-        {resultados.length > 0 && (
-          <Box mt={4}>
-            <Typography variant="h6">Carreras que cumplen con los requisitos</Typography>
-            <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '20px' }}>
-              <thead>
-                <tr>
-                  <th style={{ border: '1px solid #ddd', padding: '8px' }}>Carrera</th>
-                  <th style={{ border: '1px solid #ddd', padding: '8px' }}>Campus</th>
-                  <th style={{ border: '1px solid #ddd', padding: '8px' }}>Puntaje Mínimo</th>
-                  <th style={{ border: '1px solid #ddd', padding: '8px' }}>Puntaje Selección</th>
-                  <th style={{ border: '1px solid #ddd', padding: '8px' }}>Puntaje Simulación Con M2</th>
-                  <th style={{ border: '1px solid #ddd', padding: '8px' }}>Puntaje Simulación Sin M2</th>
-                </tr>
-              </thead>
-              <tbody>
-                {resultados.map(carrera => (
-                  carrera.campus.map((campus, index) => (
-                    <tr key={`${carrera.codigo}-${index}`}>
-                      <td style={{ border: '1px solid #ddd', padding: '8px' }}>{carrera.nombre}</td>
-                      <td style={{ border: '1px solid #ddd', padding: '8px' }}>{campus.campus}</td>
-                      <td style={{ border: '1px solid #ddd', padding: '8px' }}>{campus.puntajeMinimo}</td>
-                      <td style={{ border: '1px solid #ddd', padding: '8px' }}>{campus.puntajeSeleccion}</td>
-                      <td style={{ border: '1px solid #ddd', padding: '8px' }}>{campus.puntajeCM2.toFixed(2)}</td>
-                      <td style={{ border: '1px solid #ddd', padding: '8px' }}>{campus.puntajeSM2.toFixed(2)}</td>
-                    </tr>
-                  ))
-                ))}
-              </tbody>
-            </table>
-          </Box>
-        )}
-        {sinResultados && resultados.length === 0 && (
-          <Box mt={4}>
-            <Typography variant="h6">No se encontraron carreras que cumplan con los requisitos ingresados.</Typography>
-          </Box>
-        )}
+        </form>
+        <Box ref={resultadosRef}>
+          {resultados.length > 0 && (
+            <Box mt={4}>
+              <Typography variant="h6">Carreras que cumplen con los requisitos</Typography>
+              <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '20px' }}>
+                <thead>
+                  <tr>
+                    <th style={{ border: '1px solid #ddd', padding: '8px' }}>Carrera</th>
+                    <th style={{ border: '1px solid #ddd', padding: '8px' }}>Campus</th>
+                    <th style={{ border: '1px solid #ddd', padding: '8px' }}>Puntaje Mínimo</th>
+                    <th style={{ border: '1px solid #ddd', padding: '8px' }}>Puntaje Selección</th>
+                    <th style={{ border: '1px solid #ddd', padding: '8px' }}>Puntaje Simulación Con M2</th>
+                    <th style={{ border: '1px solid #ddd', padding: '8px' }}>Puntaje Simulación Sin M2</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {resultados.map(carrera => (
+                    carrera.campus.map((campus, index) => (
+                      <tr key={`${carrera.codigo}-${index}`}>
+                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>{carrera.nombre}</td>
+                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>{campus.campus}</td>
+                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>{campus.puntajeMinimo}</td>
+                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>{campus.puntajeSeleccion}</td>
+                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>{campus.puntajeCM2.toFixed(2)}</td>
+                        <td style={{ border: '1px solid #ddd', padding: '8px' }}>{campus.puntajeSM2.toFixed(2)}</td>
+                      </tr>
+                    ))
+                  ))}
+                </tbody>
+              </table>
+            </Box>
+          )}
+          {sinResultados && resultados.length === 0 && (
+            <Box mt={4}>
+              <Typography variant="h6">No se encontraron carreras que cumplan con los requisitos ingresados.</Typography>
+            </Box>
+          )}
+        </Box>
       </Box>
-    </Box>
+    </>
   );
 };
 
