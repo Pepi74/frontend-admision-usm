@@ -1,29 +1,29 @@
 import React from 'react'
-import Aranceles from '../components/aranceles'
+import BeneficiosU from '../components/beneficios_usm'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 
-export const ArancelesPage = () => {
+export const BeneficiosPageU = () => {
   return (
     <>
     <div style={{ marginBottom: '20px' }}>
         <a 
-          href="/" 
-          style={{
+            href="/beneficios" 
+            style={{
             display: 'flex', 
             alignItems: 'center', 
             textDecoration: 'none', 
             color: '#3498db', 
             fontWeight: 'bold',
             fontSize: '1.1rem'
-          }}
+            }}
         >
-            <ArrowBackIcon style={{ marginRight: '8px' }} />
-            Volver a Inicio
+          <ArrowBackIcon style={{ marginRight: '8px' }} />
+          Volver a Beneficios
         </a>
-      </div>
-    <Aranceles/>
+    </div>
+    <BeneficiosU/>
     </>
   )
 }
 
-export default ArancelesPage
+export default BeneficiosPageU

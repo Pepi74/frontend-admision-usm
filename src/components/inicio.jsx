@@ -6,6 +6,8 @@ import BeneficiosPage from '../pages/beneficios_page'
 import ArancelesPage from '../pages/aranceles_page'
 import OfertaPage from '../pages/oferta_page'
 import PostulacionesPage from '../pages/postulaciones_page'
+import BeneficiosPageM from '../pages/beneficiosm_page'
+import BeneficiosPageU from '../pages/beneficiosu_page'
 import NavBar from './nav_bar'
 const Inicio = () => {
   return (
@@ -18,6 +20,8 @@ const Inicio = () => {
               <Route path='/' element={<HomePage />} />
               <Route path='/simulador' element={<SimuladorPage />} />
               <Route path='/beneficios' element={<BeneficiosPage />} />
+              <Route path='/beneficios/mineduc' element={<BeneficiosPageM />} />
+              <Route path='/beneficios/usm' element={<BeneficiosPageU />} />
               <Route path='/aranceles' element={<ArancelesPage />} />
               <Route path='/oferta' element={<OfertaPage />} />
               <Route path='/postulaciones' element={<PostulacionesPage />} />
