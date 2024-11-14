@@ -20,7 +20,7 @@ export const BarraLogo = () => {
       case '/aranceles':
         return 'CONOCE MÁS DETALLES SOBRE LOS ARANCELES 2025';
       case '/postulaciones':
-        return 'REALIZA Y REVISA TUS POSTULACIONES';
+        return 'REALIZA TU POSTULACIÓN';
       case '/simulador':
         return 'REALIZA UNA SIMULACIÓN DE POSTULACIÓN';
       default:
