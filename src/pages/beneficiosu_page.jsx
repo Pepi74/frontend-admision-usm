@@ -9,12 +9,12 @@ export const BeneficiosPageU = () => {
         <a 
             href="/beneficios" 
             style={{
-            display: 'flex', 
-            alignItems: 'center', 
-            textDecoration: 'none', 
-            color: '#3498db', 
-            fontWeight: 'bold',
-            fontSize: '1.1rem'
+              display: 'flex', 
+              alignItems: 'center', 
+              textDecoration: 'none', 
+              color: '#3498db', 
+              fontWeight: 'bold',
+              fontSize: '1.1rem'
             }}
         >
           <ArrowBackIcon style={{ marginRight: '8px' }} />
